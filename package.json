@@ -4,7 +4,12 @@
   "license": "MIT",
   "bugs": "https://github.com/MissedMemo/lowbar/issues",
   "main": "lib/index.js",
+  "files": ["lib"],
   "scripts": {
-    "build": "mkdir lib && cp src/index.js $_"
+    "build": "mkdir lib && cp src/index.js $_",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
   }
 }
