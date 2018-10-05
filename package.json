@@ -1,10 +1,12 @@
 {
   "name": "@memomissed/lowbar",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "MIT",
   "bugs": "https://github.com/MissedMemo/lowbar/issues",
   "main": "lib/index.js",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "mkdir lib && cp src/index.js $_",
     "test": "jest"
