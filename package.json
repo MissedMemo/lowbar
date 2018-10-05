@@ -1,4 +1,8 @@
 {
   "name": "@memomissed/lowbar",
-  "version": "1.0.2"
+  "version": "1.0.2",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "mv src/index.js dist/"
+  }
 }
