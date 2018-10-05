@@ -1,6 +1,6 @@
 {
   "name": "@memomissed/lowbar",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "scripts": {
     "build": "mkdir dist && cp src/index.js $_"
