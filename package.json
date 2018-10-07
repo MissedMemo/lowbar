@@ -4,14 +4,17 @@
   "license": "MIT",
   "bugs": "https://github.com/MissedMemo/lowbar/issues",
   "main": "lib/index.js",
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "scripts": {
-    "build": "mkdir lib && cp src/index.js $_",
+    "build": "babel src -d lib",
     "test": "jest"
   },
+  "babel": {
+    "presets": ["latest"]
+  },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
     "jest": "^23.6.0"
   }
 }
