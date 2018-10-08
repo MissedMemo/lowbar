@@ -1,16 +1,20 @@
 {
   "name": "@memomissed/lowbar",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "license": "MIT",
   "bugs": "https://github.com/MissedMemo/lowbar/issues",
   "main": "lib/index.js",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "babel src -d lib",
     "test": "yarn run build && jest"
   },
   "babel": {
-    "presets": ["latest"]
+    "presets": [
+      "latest"
+    ]
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
