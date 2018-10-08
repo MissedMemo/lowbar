@@ -2,8 +2,13 @@ const _ = {};
 
 export default _;
 
-_.each = (collection, callback) => {
-  //
+_.each = _.foreach = (collection, callback) => {
+  /* cleaner to use 'for-of', but we need index/keys
+    for (const element of collection) {
+      callback(element);
+    }
+  */
+
   if (Array.isArray(collection)) {
     for (let i = 0; i < collection.length; i++) {
       callback(collection[i], i, collection);
@@ -17,7 +22,7 @@ _.each = (collection, callback) => {
   return collection; // mostly useless, but standard, for chaining
 };
 
-_.map = (collection, callback) => {
+_.map = _.collect = (collection, callback) => {
   const results = [];
 
   _.each(collection, (element, i) => {
@@ -26,7 +31,7 @@ _.map = (collection, callback) => {
   return results;
 };
 
-_.filter = (collection, callback) => {
+_.filter = _.select = (collection, callback) => {
   const results = [];
 
   _.each(collection, (element, i) => {
@@ -38,7 +43,7 @@ _.filter = (collection, callback) => {
   return results;
 };
 
-_.reduce = (collection, callback, memo) => {
+_.reduce = _.foldl = _.inject = (collection, callback, memo) => {
   _.each(collection, (value, i) => {
     if (memo === undefined) {
       memo = value;

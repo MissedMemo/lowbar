@@ -1,5 +1,7 @@
 const _ = require("../lib").default;
 
+/******* Helpers *******/
+
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const obj = {
@@ -9,7 +11,11 @@ const obj = {
   email: "bob@example.com"
 };
 
-describe("lowbar helper methods", () => {
+const multiplyBy = n => base => n * base;
+
+/******* Tests *******/
+
+describe("lowbar library methods", () => {
   //
   describe("each", () => {
     //
@@ -34,9 +40,8 @@ describe("lowbar helper methods", () => {
   describe("map", () => {
     //
     it("should apply transform to ARRAY elements", () => {
-      const transform = n => n * 2;
-      const results = _.map(numbers, transform);
-      expect(results).toEqual(numbers.map(transform));
+      const results = _.map(numbers, multiplyBy(3));
+      expect(results).toEqual(numbers.map(n => n * 3));
     });
 
     it("should apply transform to OBJECT elements", () => {
@@ -50,10 +55,17 @@ describe("lowbar helper methods", () => {
 
   describe("filter", () => {
     //
-    it("should return specified subset of ARRAY elements", () => {
+    describe("should return specified subset of ARRAY elements", () => {
       const isEven = n => n % 2 == 0;
-      const results = _.filter(numbers, isEven);
-      expect(results).toEqual(numbers.filter(isEven));
+      const expectation = numbers.filter(isEven);
+
+      it("should work with default method name", () => {
+        expect(_.filter(numbers, isEven)).toEqual(expectation);
+      });
+
+      it("should work using the 'select' alias", () => {
+        expect(_.select(numbers, isEven)).toEqual(expectation);
+      });
     });
 
     it("should return specified subset of OBJECT values", () => {
@@ -65,16 +77,21 @@ describe("lowbar helper methods", () => {
 
   describe("reduce", () => {
     //
-    const reducer = (total, n) => n + total;
+    const adder = (total, n) => n + total;
 
     it("should reduce ARRAY elements to a single result", () => {
-      const sum = _.reduce(numbers, reducer);
+      const sum = _.reduce(numbers, adder);
       expect(sum).toEqual(1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9);
     });
 
     it("should incorporate initial starting value", () => {
-      const sum = _.reduce(numbers, reducer, 5);
+      const sum = _.reduce(numbers, adder, 5);
       expect(sum).toEqual(5 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9);
+    });
+
+    it("should reduce OBJECT values to a single result", () => {
+      const result = _.reduce(obj, (array, element) => [...array, element], []);
+      expect(result).toEqual(Object.values(obj));
     });
   });
 });
