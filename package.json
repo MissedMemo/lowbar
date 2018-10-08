@@ -4,17 +4,13 @@
   "license": "MIT",
   "bugs": "https://github.com/MissedMemo/lowbar/issues",
   "main": "lib/index.js",
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "scripts": {
     "build": "babel src -d lib",
-    "test": "jest"
+    "test": "yarn run build && jest"
   },
   "babel": {
-    "presets": [
-      "latest"
-    ]
+    "presets": ["latest"]
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
