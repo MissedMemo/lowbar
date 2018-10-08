@@ -1,16 +1,20 @@
 {
   "name": "@memomissed/lowbar",
-  "version": "1.0.14",
+  "version": "1.1.0",
   "license": "MIT",
   "bugs": "https://github.com/MissedMemo/lowbar/issues",
   "main": "lib/index.js",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "babel src -d lib",
     "test": "yarn run build && jest"
   },
   "babel": {
-    "presets": ["@babel/preset-env"]
+    "presets": [
+      "@babel/preset-env"
+    ]
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
