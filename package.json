@@ -4,21 +4,22 @@
   "license": "MIT",
   "bugs": "https://github.com/MissedMemo/lowbar/issues",
   "main": "lib/index.js",
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "scripts": {
     "build": "babel src -d lib",
     "test": "yarn run build && jest"
   },
   "babel": {
-    "presets": [
-      "latest"
-    ]
+    "presets": ["@babel/preset-env"]
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-latest": "^6.24.1",
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
     "jest": "^23.6.0"
-  }
+  },
+  "dependencies": {}
 }
