@@ -14,7 +14,8 @@ $ npm install @memomissed/lowbar
 ## Usage
 
 ```js
-import _ from ("@memomissed/lowbar")
+import _ from "@memomissed/lowbar"
+// const _ = require("@memomissed/lowbar").default
 
 _.map( [1,2,3], n => n * 2 )
 // [2,4,6]
